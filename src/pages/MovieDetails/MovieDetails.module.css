@@ -1,0 +1,4 @@
+.containerDetails {
+  display: flex;
+  flex-direction: row;
+}
