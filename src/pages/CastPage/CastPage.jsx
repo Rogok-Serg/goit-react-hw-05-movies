@@ -20,7 +20,6 @@ const Cast = () => {
         const data = await onFetchMoviesDetalis(apiCredits);
         const { cast } = data;
         setMovieCredits(cast);
-        console.log(movieCredits);
       } catch (error) {
         setError(error.message);
         alert('ERROR:', errorMes);

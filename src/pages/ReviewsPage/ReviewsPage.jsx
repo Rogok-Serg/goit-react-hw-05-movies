@@ -20,14 +20,13 @@ const Reviews = () => {
         const data = await onFetchMoviesDetalis(apiReviews);
         // const { reviews } = data;
         setMovieReviews(data.results);
-        console.log(movieReviews);
       } catch (error) {
         setError(error.message);
         alert('ERROR:', errorMes);
       }
     };
     dataMovies();
-  }, []);
+  }, [apiReviews, errorMes, movieId]);
   return (
     <div>
       {movieReviews.langth > 0 ? (

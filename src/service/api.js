@@ -33,7 +33,5 @@ export const fetchSearchMovies = async (
   const { data } = await axios.get(
     `${URL}${apiType}?api_key=${KEY_API}&query=${searchSubmit}&page=${quantityPage}&language=en-US`
   );
-
-  console.log('data: ', data);
   return data;
 };

@@ -44,18 +44,24 @@ const MovieDetails = () => {
     };
 
     dataMovies();
-    console.log(movieDetails);
-  }, []);
+  }, [apiDataMovie, errorMes, movieId]);
 
-  const { poster_path, title, vote_average, overview, genres, release_date } =
-    movieDetails;
+  const {
+    poster_path,
+    id,
+    title,
+    vote_average,
+    overview,
+    genres,
+    release_date,
+  } = movieDetails;
 
   return (
     <section>
       <Link to={backLink.current}>Go back</Link>
       {isLoading && <Loader />}
       {movieDetails !== [] && (
-        <div className={css.containerDetails}>
+        <div key={id} className={css.containerDetails}>
           <div>
             {' '}
             <img
