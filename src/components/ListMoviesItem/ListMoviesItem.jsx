@@ -8,7 +8,7 @@ const ListMoviesItem = ({ movie }) => {
   const { id, poster_path, title } = movie;
   const poster = poster_path
     ? `https://image.tmdb.org/t/p/w400${poster_path}`
-    : 'http://placehold.it/300x400';
+    : 'https://dummyimage.com/300x450/99cccc.gifffffff&text=No%20poster!';
   return (
     <Link
       state={{ from: location }}
