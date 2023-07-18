@@ -56,9 +56,6 @@ const MoviesPage = () => {
     setSearchParams({ query: searchValue });
     setQuantityPage(1);
     setSearchMovie([]);
-
-    console.log(searchParams);
-
     e.target.reset();
   };
   const loadMore = () => {
