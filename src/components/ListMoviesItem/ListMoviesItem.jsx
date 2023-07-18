@@ -6,17 +6,16 @@ const ListMoviesItem = ({ movie }) => {
   const location = useLocation();
 
   const { id, poster_path, title } = movie;
+  const poster = poster_path
+    ? `https://image.tmdb.org/t/p/w400${poster_path}`
+    : 'http://placehold.it/300x400';
   return (
     <Link
       state={{ from: location }}
       className={css.itemMovie}
       to={`/movies/${id}`}
     >
-      <img
-        src={`https://image.tmdb.org/t/p/w500${poster_path}`}
-        alt={title}
-        width="360"
-      />
+      <img src={poster} alt={title} width="360" />
       <h4 className={css.title}> {title}</h4>
     </Link>
   );

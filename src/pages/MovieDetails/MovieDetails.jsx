@@ -55,7 +55,9 @@ const MovieDetails = () => {
     genres,
     release_date,
   } = movieDetails;
-
+  const poster = poster_path
+    ? `https://image.tmdb.org/t/p/w400${poster_path}`
+    : 'http://placehold.it/300x400';
   return (
     <section>
       <Link to={backLink.current}>Go back</Link>
@@ -64,11 +66,7 @@ const MovieDetails = () => {
         <div key={id} className={css.containerDetails}>
           <div className={css.image}>
             {' '}
-            <img
-              src={`https://image.tmdb.org/t/p/w400${poster_path}`}
-              alt={title}
-              width="360"
-            />
+            <img src={poster} alt={title} width="360" />
           </div>
           <div>
             <h2>
