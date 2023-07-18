@@ -12,10 +12,11 @@ const MoviesPage = () => {
   const apiSearch = '/search/movie';
 
   const [searchMovie, setSearchMovie] = useState([]);
-  const [errorMessage, setError] = useState(null);
+  const [errorMessage, setErrorMessage] = useState(null);
   const [quantityPage, setQuantityPage] = useState(1);
   const [total, setTotal] = useState(0);
   const [isLoading, setIsLoading] = useState(false);
+
   useEffect(() => {
     if (!searchTerm) return;
 
@@ -31,23 +32,23 @@ const MoviesPage = () => {
           alert('Not a valid request. Please enter a valid value!');
           return;
         }
-        setSearchMovie(prevMovie => [...prevMovie, ...data.results]);
+        setSearchMovie(prevMovie => {
+          return [...prevMovie, ...data.results];
+        });
         setTotal(data.total_pages);
-        console.log(searchMovie);
       } catch (error) {
-        setError(error.message);
+        setErrorMessage(error.message);
         alert('ERROR:', errorMessage);
       } finally {
         setIsLoading(false);
       }
     };
     searchMovies();
-  }, [searchTerm, quantityPage]);
+  }, [searchTerm, quantityPage, errorMessage]);
 
   const handelSubmit = e => {
     e.preventDefault();
-    console.dir(e.target.search.value);
-    const searchValue = e.target.children.search.value.toLowerCase().trim();
+    const searchValue = e.target.search.value.toLowerCase().trim();
     if (searchValue === '') {
       alert('Please enter your query in the search field');
       return;

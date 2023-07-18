@@ -21,29 +21,39 @@ const MovieDetails = () => {
   const apiDataMovie = `/movie/${movieId}`;
   const [movieDetails, setMovieDetails] = useState([]);
   const [errorMes, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
   const backLink = useRef(location.state?.from ?? '/');
-  // const [page, setPage] = 1;
 
   useEffect(() => {
     if (!movieId) return;
+
     const dataMovies = async () => {
       try {
+        setIsLoading(true);
         const data = await onFetchMoviesDetalis(apiDataMovie);
-        setMovieDetails(data);
-        console.log(movieDetails);
+        setMovieDetails(() => {
+          return data;
+        });
       } catch (error) {
         setError(error.message);
         alert('ERROR:', errorMes);
+      } finally {
+        setIsLoading(false);
       }
     };
+
     dataMovies();
-  }, [movieId, apiDataMovie]);
+    console.log(movieDetails);
+  }, []);
+
   const { poster_path, title, vote_average, overview, genres, release_date } =
     movieDetails;
+
   return (
     <section>
       <Link to={backLink.current}>Go back</Link>
+      {isLoading && <Loader />}
       {movieDetails !== [] && (
         <div className={css.containerDetails}>
           <div>

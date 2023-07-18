@@ -27,10 +27,10 @@ const Cast = () => {
       }
     };
     dataMovies();
-  }, []);
+  }, [movieId, apiCredits, errorMes]);
   return (
     <div>
-      {!movieCredits ? (
+      {movieCredits === [] ? (
         <div>
           <p>Not Movies</p>
         </div>

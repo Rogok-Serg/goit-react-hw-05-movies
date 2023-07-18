@@ -30,7 +30,7 @@ const Reviews = () => {
   }, []);
   return (
     <div>
-      {movieReviews === [] ? (
+      {movieReviews.langth > 0 ? (
         <div>
           <p>Not Movies</p>
         </div>
