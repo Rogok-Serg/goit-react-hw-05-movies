@@ -62,7 +62,7 @@ const MovieDetails = () => {
       {isLoading && <Loader />}
       {movieDetails !== [] && (
         <div key={id} className={css.containerDetails}>
-          <div>
+          <div className={css.image}>
             {' '}
             <img
               src={`https://image.tmdb.org/t/p/w400${poster_path}`}
