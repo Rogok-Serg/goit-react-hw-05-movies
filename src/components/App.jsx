@@ -1,5 +1,5 @@
 import { Suspense, lazy } from 'react';
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { NavLink, Navigate, Route, Routes } from 'react-router-dom';
 // import HomePage from 'pages/HomePage/HomePage';
 // import MovieDetails from 'pages/MovieDetails/MovieDetails';
 // import MoviesPage from 'pages/MoviesPage/MoviesPage';
@@ -25,6 +25,7 @@ export const App = () => {
             <Route path="/" element={<HomePage />}></Route>
             <Route path="/movies" element={<MoviesPage />}></Route>
             <Route path="/movies/:movieId/*" element={<MovieDetails />}></Route>
+            <Route path="*" element={<Navigate to={'/'} />} />
           </Routes>
         </Suspense>
       </main>
