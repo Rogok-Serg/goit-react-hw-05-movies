@@ -32,9 +32,7 @@ const MovieDetails = () => {
       try {
         setIsLoading(true);
         const data = await onFetchMoviesDetalis(apiDataMovie);
-        setMovieDetails(() => {
-          return data;
-        });
+        setMovieDetails(data);
       } catch (error) {
         setError(error.message);
         alert('ERROR:', errorMes);
@@ -62,7 +60,7 @@ const MovieDetails = () => {
     <section>
       <Link to={backLink.current}>Go back</Link>
       {isLoading && <Loader />}
-      {movieDetails !== [] && (
+      {movieDetails && (
         <div key={id} className={css.containerDetails}>
           <div className={css.image}>
             {' '}

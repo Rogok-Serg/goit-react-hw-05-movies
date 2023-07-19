@@ -8,7 +8,7 @@ const Cast = () => {
   const apiCredits = `/movie/${movieId}/credits`;
 
   // const apiDataMovie = `/movie/${movieId}`;
-  const [movieCredits, setMovieCredits] = useState([]);
+  const [movieCredits, setMovieCredits] = useState(null);
 
   const [errorMes, setError] = useState(null);
   // const [page, setPage] = 1;
@@ -29,9 +29,9 @@ const Cast = () => {
   }, [movieId, apiCredits, errorMes]);
   return (
     <div>
-      {movieCredits === [] ? (
+      {movieCredits === null ? (
         <div>
-          <p>Not Movies</p>
+          <p>There is no information about the actors</p>
         </div>
       ) : (
         <CastList cast={movieCredits} />
