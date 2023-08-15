@@ -70,6 +70,7 @@ const MovieDetails = () => {
             <h2>
               {title}({release_date?.slice(0, 4)})
             </h2>
+            <h3>Release date: {release_date}</h3>
             <p>User Score: {(vote_average * 10).toFixed(0)}%</p>
             <h3>Overview</h3>
             <p>{overview}</p>
